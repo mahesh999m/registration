@@ -1,0 +1,8 @@
+.active-page {
+    background: orange; 
+    border: orange;
+}
+
+.active-page:hover {
+    border: orange;
+}

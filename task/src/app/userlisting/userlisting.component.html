@@ -1,0 +1,31 @@
+<div class="container">
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th class="text-center">First Name</th>
+      <th class="text-center">Last Name</th>
+      <th class="text-center">Age</th>
+      <th class="text-center">Mobile</th>
+      <th class="text-center">Email</th>
+      
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of usersArr; let i = index;" class="text-center">
+      <td>{{ user.firstName }}</td>
+      <td>{{ user.lastName }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.mobile }}</td>
+      <td>{{ user.email }}</td>
+        
+      <td>
+        <span class="btn btn-xs btn-warning" (click)="deleteUser(user._id, i)">
+          <i class="glyphicon glyphicon-trash"> </i>&emsp;Delete</span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+  
+</div>

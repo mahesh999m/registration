@@ -1,0 +1,66 @@
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading text-center">
+            User Registration
+        </div>
+        <div class="panel-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="firstName">First Name :</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" formControlName="firstName" required>
+                    <span *ngIf="firstName.touched && firstName.invalid" style="color: red; font-family: monospace;">
+                      This field is Required!
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="lastName">Last Name :</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" formControlName="lastName" required>
+                    <span *ngIf="lastName.touched && lastName.invalid" style="color: red; font-family: monospace;">
+                      This field is Required!
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label for="age">Age :</label>
+                    <input type="number" id="age" min="1" max="100" name="age" class="form-control" formControlName="age" required>
+                    <span *ngIf="age.touched && age.invalid" style="color: red; font-family: monospace;">
+                        <span *ngIf="age.errors.required"> This field required!</span>
+                        <span *ngIf="age.errors.max">Please enter a valid age</span>                
+                    </span>
+                   
+                </div>
+                <div class="form-group">
+                    <label for="mobile">Mobile :</label>
+                    <input type="number" id="mobile" name="mobile" class="form-control" formControlName="mobile" required>
+                    <span *ngIf="mobile.touched && mobile.invalid" style="color: red; font-family: monospace;">
+                        This field is Required!
+                      </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" class="form-control" formControlName="email" required>
+                    <span *ngIf="email.touched && email.invalid" style="color: red; font-family: monospace;">
+                        <span *ngIf="email.errors.required"> This field required!</span>
+                        <span *ngIf="email.errors.email"> invalid email</span>              
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password :</label>
+                    <input type="password" id="password" name="password" class="form-control" formControlName="password" required>
+                    <span *ngIf="password.touched && password.invalid" style="color: red; font-family: monospace;">
+                        <span *ngIf="password.errors.required"> This field required!</span>
+                        <span *ngIf="password.errors.minlength">Password must be at least 6 characters.</span>  
+                      </span>
+                </div>
+                
+                
+
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-success btn-sm" [disabled]="registrationForm.invalid">Save</button>&nbsp;
+                    <button type="reset" class="btn btn-warning btn-sm">Reset</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
